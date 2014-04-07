@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="" date=" " product-name=" ">
+		<header/>
+		<body>
+			<trans-unit id="lelesys.plugin.forum.forum" approved="no">
+				<source>Forum</source>
+				<target>Forum</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.messages" approved="no">
+				<source>Messages</source>
+				<target>Messages</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.posts" approved="no">
+				<source>Posts</source>
+				<target>Posts</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.lastmessage" approved="no">
+				<source>Last message</source>
+				<target>Last message</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.nocategories" approved="no">
+				<source>No categories created yet</source>
+				<target>No categories created yet</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.newpost" approved="no">
+				<source>Create new post</source>
+				<target>Create new post</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.post" approved="no">
+				<source>Post</source>
+				<target>Post</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.views" approved="no">
+				<source>Views</source>
+				<target>Views</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.forumdetail" approved="no">
+				<source>Forum Detail</source>
+				<target>Forum Detail</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.title" approved="no">
+				<source>Title</source>
+				<target>Title</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.comment" approved="no">
+				<source>Comment</source>
+				<target>Comment</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.back" approved="no">
+				<source>Back</source>
+				<target>Back</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.submit" approved="no">
+				<source>Submit</source>
+				<target>Submit</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.submitcomment" approved="no">
+				<source>Submit Comment</source>
+				<target>Submit Comment</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.submitreply" approved="no">
+				<source>Reply</source>
+				<target>Reply</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.reply" approved="no">
+				<source>reply</source>
+				<target>reply</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.postdetail" approved="no">
+				<source>Post Detail</source>
+				<target>Post Detail</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.nopostcreated" approved="no">
+				<source>No Posts created for the forum</source>
+				<target>No Posts created for the forum</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.captchatextwrong" approved="no">
+				<source>Captcha does not match please try again</source>
+				<target>Captcha does not match please try again</target>
+			</trans-unit>
+			<trans-unit id="lelesys.plugin.forum.captchanotextfound" approved="no">
+				<source>Captcha text not found</source>
+				<target>Captcha text not found</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,47 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace lpf=Lelesys\Plugin\Forum\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title"></f:section>
+
+<f:section name="Content">
+	<f:if condition="{post}">
+		<f:then>
+			<div class="post-reply">
+				<div class="post-detail">
+					<p>
+						<strong>{post.properties.title}</strong> <br/>
+						{post.properties.description}
+						<f:link.action class="btn btn-primary pull-right" action="reply" controller="post" arguments="{post: post.identifier, forum: forum.identifier}"><f:translate id="lelesys.plugin.forum.submitreply">Reply</f:translate></f:link.action>
+					</p>
+				</div>
+				<f:if condition="<lpf:post documentNode='{post}' />">
+					<hr/>
+					<f:for each="<lpf:post documentNode='{post}' />" as="firstPost">
+						<div class="reply-detail">
+							<p>
+								<f:link.action class="btn btn-primary pull-right" action="reply" controller="post" arguments="{post: firstPost, forum: forum.identifier}"><f:translate id="lelesys.plugin.forum.submitreply">Reply</f:translate></f:link.action>
+								<strong>Re - {firstPost.properties.title} </strong><br/>
+								<f:format.date format="M d, Y">{firstPost.properties.createdDate}</f:format.date><br/>
+								{firstPost.properties.description}
+							</p>
+							<f:if condition="<lpf:post documentNode='{firstPost}' />">
+								<f:for each="<lpf:post documentNode='{firstPost}' />" as="secondPost">
+									<div class="reply-detail">
+										<img  src="{f:uri.resource(path:'Images/arrow-right.png')}" alt="arrow-right" class="pull-left"/>
+										<p>
+											<strong>Re - {secondPost.properties.title} </strong><br/>
+											<f:format.date format="M d, Y">{secondPost.properties.createdDate}</f:format.date><br/>
+											{secondPost.properties.description}
+										</p>
+									</div>
+								</f:for>
+							</f:if>
+						</div>
+					</f:for>
+				</f:if>
+			</div>
+			<neos:link.node node="{forum}" class="btn btn-cancel"><f:translate id="lelesys.plugin.forum.back">Back</f:translate></neos:link.node>
+		</f:then>
+	</f:if>
+</f:section>

@@ -1,0 +1,34 @@
+# Forum List
+prototype(Lelesys.Plugin.Forum:Forums) < prototype(TYPO3.Neos:Content)
+prototype(Lelesys.Plugin.Forum:Forums) {
+	storageNode = ${q(node).property('storageNode') != null ? q(node).property('storageNode') : documentNode}
+	# default path is resource://Lelesys.Plugin.Forum/Private/Templates/NodeTypes/Forums.html
+	# templatePath = 'resource://Your.Package/Private/NodeTypes/Forums.html'
+	categories = ${q(this.storageNode).children('[instanceof Lelesys.Plugin.Forum:Category]').get()}
+}
+
+# Forum detail
+prototype(Lelesys.Plugin.Forum:Forum) < prototype(TYPO3.Neos:Content)
+prototype(Lelesys.Plugin.Forum:Forum) {
+	forum = ${documentNode}
+	# default path is resource://Lelesys.Plugin.Forum/Private/Templates/NodeTypes/Forum.html
+	# templatePath = 'resource://Your.Package/Private/NodeTypes/Forum.html'
+	posts = ${q(documentNode).children('[instanceof Lelesys.Plugin.Forum:Post]').get()}
+}
+
+# Post Detail
+prototype(Lelesys.Plugin.Forum:PostDetail) < prototype(TYPO3.Neos:Plugin)
+prototype(Lelesys.Plugin.Forum:PostDetail) {
+     package = 'Lelesys.Plugin.Forum'
+     controller = 'Post'
+     action = 'show'
+     argumentNamespace = 'post'
+}
+
+# New post form
+prototype(Lelesys.Plugin.Forum:NewPost) < prototype(TYPO3.Neos:Plugin)
+prototype(Lelesys.Plugin.Forum:NewPost) {
+     package = 'Lelesys.Plugin.Forum'
+     controller = 'Post'
+     action = 'new'
+}

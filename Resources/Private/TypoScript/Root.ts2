@@ -1,0 +1,19 @@
+include: resource://Lelesys.Plugin.Forum/Private/TypoScript/Library/Prototypes.ts2
+
+# shows the new post form on the forum node if applicable
+prototype(TYPO3.Neos:PrimaryContent).newPostOnForum {
+	condition = ${q(node).is('[instanceof Lelesys.Plugin.Forum:Forum]') && request.arguments.postPlugin == '1'}
+	type = 'Lelesys.Plugin.Forum:NewPost'
+}
+
+# render the forum as primary content when applicable
+prototype(TYPO3.Neos:PrimaryContent).forum {
+	condition = ${q(node).is('[instanceof Lelesys.Plugin.Forum:Forum]')}
+	type = 'Lelesys.Plugin.Forum:Forum'
+}
+
+# render the post as primary content when applicable
+prototype(TYPO3.Neos:PrimaryContent).post {
+	condition = ${q(node).is('[instanceof Lelesys.Plugin.Forum:Post]')}
+	type = 'Lelesys.Plugin.Forum:PostDetail'
+}

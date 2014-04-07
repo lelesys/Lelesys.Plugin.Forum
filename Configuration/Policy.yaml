@@ -1,0 +1,16 @@
+#                                                                        #
+# Security policy definition                                             #
+#                                                                        #
+# This file contains  policy configuration for the                       #
+# Lelesys.Plugin.Forum package											 #
+
+resources:
+  methods:
+    Lelesys_Plugin_Forum_Access: 'method(Lelesys\Plugin\Forum\Controller\ForumController->.*Action())'
+    Lelesys_Plugin_Post_Access: 'method(Lelesys\Plugin\Forum\Controller\PostController->.*Action())'
+
+acls:
+  Everybody:
+    methods:
+      Lelesys_Plugin_Forum_Access: GRANT
+      Lelesys_Plugin_Post_Access: GRANT

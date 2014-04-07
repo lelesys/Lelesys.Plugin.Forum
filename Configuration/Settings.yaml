@@ -1,0 +1,13 @@
+TYPO3:
+  Neos:
+    typoScript:
+      autoInclude:
+        'Lelesys.Plugin.Forum': TRUE
+
+Lelesys:
+  Captcha:
+    customErrorMessagePackageKey: 'Lelesys.Plugin.Forum'
+    errorMessageTextWrong: 'lelesys.plugin.forum.captchatextwrong'
+    errorMessageTextNotFound: 'lelesys.plugin.forum.captchanotextfound'
+    height: 150
+    width: 50

@@ -1,0 +1,81 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace lpf=Lelesys\Plugin\Forum\ViewHelpers}
+{namespace typo3cr=TYPO3\TYPO3CR\ViewHelpers}
+
+<f:if condition="{categories}">
+	<f:then>
+		<div>
+			<typo3cr:widget.paginate nodes="{categories}" as="paginatedCategories" configuration="{itemsPerPage: 5}">
+				<f:for each="{paginatedCategories}" as="category" iteration="categoryIteration">
+					<div id="accordion{categoryIteration.index}" class="accordion">
+						<div class="accordion-group">
+							<div class="forum-group">
+								<f:if condition="<f:count><lpf:forum documentNode='{category}' /></f:count> >= 1">
+									<div class="pull-right chevron-icon">
+										<a href="#collapse{categoryIteration.index}" data-parent="#accordion{categoryIteration.index}" data-toggle="collapse" class="accordion-toggle">
+											<img  src="{f:uri.resource(path:'Images/chevron-down.svg', package:'Lelesys.Plugin.Forum')}" class="down" alt="hide" />
+											<img  src="{f:uri.resource(path:'Images/chevron-up.svg', package:'Lelesys.Plugin.Forum')}" class="up" alt="show" />
+										</a>
+									</div>
+									<div class="forum-category">
+										<strong>{category.properties.title}</strong><br>
+										<p>{category.properties.description}</p>
+									</div>
+								</f:if>
+								<div class="accordion-body collapse" id="collapse{categoryIteration.index}" style="height: 0px;">
+									<div class="accordion-forum">
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th></th>
+													<th>
+														<f:translate id="lelesys.plugin.forum.forum" package="Lelesys.Plugin.Forum">Forum</f:translate>
+													</th>
+													<th>
+														<f:translate id="lelesys.plugin.forum.messages" package="Lelesys.Plugin.Forum">Messages</f:translate>
+													</th>
+													<th>
+														<f:translate id="lelesys.plugin.forum.posts" package="Lelesys.Plugin.Forum">Posts</f:translate>
+													</th>
+													<th>
+														<f:translate id="lelesys.plugin.forum.lastmessage" package="Lelesys.Plugin.Forum">Last message</f:translate>
+													</th>
+												</tr>
+											</thead>
+											<f:for each="<lpf:forum documentNode='{category}' />" as="forum">
+												<tr>
+													<td class="span1">
+														<img  src="{f:uri.resource(path:'Images/folder.jpeg', package:'Lelesys.Plugin.Forum')}" alt="folder-image"/>
+													</td>
+													<td>
+														<neos:link.node node="{forum}">
+															{forum.properties.title}
+														</neos:link.node>
+														<p><f:format.crop maxCharacters="50">{forum.properties.description}</f:format.crop></p>
+													</td>
+													<td>
+														{forum.properties.numberOfReplies}
+													</td>
+													<td>
+														<div class="marginbot10"></div>
+														{forum.numberOfChildNodes}
+													</td>
+													<td>
+														<f:format.date format="D, d M Y">{forum.properties.lastMessageDate}</f:format.date>
+													</td>
+												</tr>
+											</f:for>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</f:for>
+			</typo3cr:widget.paginate>
+		</div>
+	</f:then>
+	<f:else>
+		<p><f:translate id="lelesys.plugin.forum.nocategories" package="Lelesys.Plugin.Forum">No categories created yet</f:translate></p>
+	</f:else>
+</f:if>

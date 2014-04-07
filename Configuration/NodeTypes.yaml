@@ -1,0 +1,76 @@
+'Lelesys.Plugin.Forum:Forums':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+  ui:
+    label: 'Forums'
+    group: 'general'
+    icon: 'icon-puzzle-piece'
+    inspector:
+      groups:
+        forum:
+          label: 'Forum'
+  properties:
+    storageNode:
+      type: reference
+      ui:
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'forum'
+        label: 'Storage Node'
+
+'Lelesys.Plugin.Forum:Category':
+  superTypes: ['TYPO3.Neos:Document']
+  ui:
+    label: 'Forum category'
+    icon: 'icon-book'
+    inspector:
+      groups:
+        document:
+          label: 'Category'
+  properties:
+    description:
+        type: string
+        ui:
+          label: 'Description'
+          reloadIfChanged: TRUE
+          inspector:
+            group: 'document'
+            position: 10
+
+'Lelesys.Plugin.Forum:Forum':
+  superTypes: ['TYPO3.Neos:Document']
+  ui:
+    label: 'Forum'
+    icon: 'icon-book'
+    inspector:
+      groups:
+        document:
+          label: 'Forum'
+  properties:
+    description:
+        type: string
+        ui:
+          label: 'Description'
+          reloadIfChanged: TRUE
+          inspector:
+            group: 'document'
+            position: 10
+
+'Lelesys.Plugin.Forum:Post':
+  superTypes: ['TYPO3.Neos:Document']
+  ui:
+    label: 'Forum post'
+    icon: 'icon-book'
+    inspector:
+      groups:
+        document:
+          label: 'Forum Post'
+  properties:
+    description:
+        type: string
+        ui:
+          label: 'Description'
+          reloadIfChanged: TRUE
+          inspector:
+            group: 'document'
+            position: 10

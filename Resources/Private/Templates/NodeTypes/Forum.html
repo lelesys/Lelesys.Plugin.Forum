@@ -1,0 +1,70 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace lpf=Lelesys\Plugin\Forum\ViewHelpers}
+{namespace typo3cr=TYPO3\TYPO3CR\ViewHelpers}
+
+<f:if condition="{forum}">
+	<f:then>
+		<div class="span8">
+			<a href="?postPlugin=1&--lelesys_plugin_forum-forum[forum]={node.identifier}" class='btn btn-primary'>Create new post</a>
+		</div><br/>
+		<div class="row-fluid">
+			<f:if condition="{posts}">
+				<f:then>
+					<div class="span8">
+						<typo3cr:widget.paginate nodes="{posts}" as="paginatedPosts" configuration="{itemsPerPage: 5}">
+							<table class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th></th>
+										<th>
+											<f:translate id="lelesys.plugin.forum.post" package="Lelesys.Plugin.Forum">Post</f:translate>
+										</th>
+										<th>
+											<f:translate id="lelesys.plugin.forum.replies" package="Lelesys.Plugin.Forum">Replies</f:translate>
+										</th>
+										<th>
+											<f:translate id="lelesys.plugin.forum.views" package="Lelesys.Plugin.Forum">Views</f:translate>
+										</th>
+										<th>
+											<f:translate id="lelesys.plugin.forum.lastmessage" package="Lelesys.Plugin.Forum">Last message</f:translate>
+										</th>
+									</tr>
+								</thead>
+									<f:for each="{paginatedPosts}" as="post">
+									<tr>
+										<td class="span1">
+											<img  src="{f:uri.resource(path:'Images/folder.jpeg', package:'Lelesys.Plugin.Forum')}" alt="" />
+										</td>
+										<td class="span4">
+											<i class="icon-chevron-down"></i>
+											<neos:link.node node="{post}">{post.properties.title}</neos:link.node>
+											<p><f:format.crop maxCharacters="100">{post.properties.description}</f:format.crop></p>
+										</td>
+										<td class="span1">
+											{post.numberOfChildNodes}
+										</td>
+										<td class="span1">
+											<lpf:postViews documentNode='{post}' />
+										</td>
+										<td class="span1">
+											<div class="line"></div>
+											<f:format.date format="D, d M Y">{post.properties.lastMessageDate}</f:format.date>
+										</td>
+									</tr>
+								</f:for>
+							</table>
+						</typo3cr:widget.paginate>
+					</div>
+				</f:then>
+				<f:else>
+					<div class="span8">
+						<p><f:translate id="lelesys.plugin.forum.nopostcreated" package="Lelesys.Plugin.Forum">No Posts created for the forum</f:translate></p>
+					</div>
+				</f:else>
+			</f:if>
+		</div>
+	</f:then>
+	<f:else>
+		<p><f:translate id="lelesys.plugin.forum.forumdetail" package="Lelesys.Plugin.Forum">Forum Detail</f:translate></p>
+	</f:else>
+</f:if>

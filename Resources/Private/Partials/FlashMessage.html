@@ -1,0 +1,17 @@
+<f:flashMessages severity="OK" as="flashMessages">
+	<div class="neos-alert neos-alert-success margintop10">
+		<button data-dismiss="alert" class="neos-close" type="button">×</button>
+		<f:for each="{flashMessages}" as="flashMessage">
+			<strong>{flashMessage}</strong>
+		</f:for>
+	</div>
+</f:flashMessages>
+
+<f:flashMessages severity="Error" as="flashMessages">
+	<div class="neos-alert neos-alert-error neos-alert-messages error">
+		<button data-dismiss="alert" class="neos-close" type="button">×</button>
+		<f:for each="{flashMessages}" as="flashMessage">
+			<strong>{flashMessage}</strong>
+		</f:for>
+	</div>
+</f:flashMessages>

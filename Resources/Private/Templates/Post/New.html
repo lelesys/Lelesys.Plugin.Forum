@@ -1,0 +1,64 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace lpf=Lelesys\Plugin\Forum\ViewHelpers}
+{namespace captcha =Lelesys\Captcha\ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="Title"></f:section>
+
+<f:section name="Content">
+	<div class="row-fluid">
+		<f:form action="create" controller="post" object="{newPost}" name="newPost" package="Lelesys.Plugin.Forum" id="createPost" class="form-horizontal">
+			<div class="form-group">
+				<f:render partial="FlashMessage" />
+			</div>
+			<div class="form-group">
+				<label for="title" class="col-sm-2 control-label">
+					<f:translate id="lelesys.plugin.forum.title">Title </f:translate><span class="required">*</span>
+				</label>
+				<div class="col-sm-6">
+					<f:form.textfield property="title" class="form-control" id="title" />
+				</div>
+			</div>
+			 <div class="form-group">
+				<label for="description" class="col-sm-2 control-label">
+					<f:translate id="lelesys.plugin.forum.description">Description </f:translate><span class="required">*</span>
+				</label>
+				 <div class="col-sm-6">
+					<f:form.textarea property="description" class="form-control" rows="4" id="description" />
+				 </div>
+			</div>
+			<div class="form-group">
+				<label for="captcha" class="col-sm-2 control-label">
+					<f:translate id="lelesys.plugin.forum.captcha">Captcha</f:translate><span class="required">*</span>
+				</label>
+				<div class="col-sm-6">
+					<captcha:captcha></captcha:captcha>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">
+				</label>
+				<div class="col-sm-6">
+					<f:form.textfield name="captcha" class="form-control" id="captcha" />
+				</div>
+				<f:form.validationResults for="{captcha}">
+					<f:if condition="{validationResults.flattenedErrors}">
+						<f:for each="{validationResults.flattenedErrors}" key="propertyPath" as="errors">
+							<f:for each="{errors}" as="error"><label class="error">{error}<label class="error"></f:for>
+						</f:for>
+					</f:if>
+				</f:form.validationResults>
+			</div>
+			<f:form.hidden name="forum" value="{forum.identifier}" />
+			<f:form.hidden name="postPlugin" value="1" />
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-6">
+					<div class="pull-left">
+						<neos:link.node node="{forum}" class="btn btn-cancel"><f:translate id="lelesys.plugin.forum.back">Back</f:translate></neos:link.node>
+					</div>
+					<f:form.submit value='<f:translate id="lelesys.plugin.forum.submit">Submit</f:translate>' class="btn btn-primary" />
+				</div>
+			</div>
+		</f:form>
+	</div>
+</f:section>

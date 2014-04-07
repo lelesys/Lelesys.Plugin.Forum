@@ -1,0 +1,39 @@
+/* Error style */
+.error {
+	color: #FF460D;
+}
+/* Forum list view */
+.chevron-icon img {
+	margin: 18px 18px 0 0;
+    vertical-align: middle;
+    width: auto;
+}
+.forum-category {
+	padding: 12px 0 0 12px;
+}
+.forum-group {
+	margin-bottom: 10px;
+	border: 1px solid #FF460D;
+}
+
+.post-reply {
+	border: 1px solid #FF460D;
+    list-style: none outside none;
+}
+.post-detail {
+	padding: 14px 14px 0;
+}
+.reply-detail {
+	padding: 0 30px;
+}
+.post-reply hr,
+.reply-detail hr {
+	border-color: #FF460D;
+}
+/* Pagination widget */
+.typo3-widget-paginator li {
+	display: inline;
+	margin: 4px;
+    padding: 4px 6px;
+	line-height: 2.6;
+}
