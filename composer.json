@@ -6,7 +6,7 @@
 	"require": {
 		"typo3/flow":"*",
 		"typo3/neos":"*",
-		"lelesys/captcha":"1.0.2"
+		"lelesys/captcha":"@dev"
 	},
 	"autoload": {
 		"psr-0": {
